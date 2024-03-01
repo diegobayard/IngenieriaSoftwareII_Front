@@ -1,0 +1,51 @@
+a{
+  text-decoration: none;
+
+  color: silver;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Girassol', cursive;
+}
+  a:hover{
+      color: goldenrod;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Girassol', cursive;
+  }
+
+  h1{
+    color:silver;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 60px;
+      text-indent: -100px;
+  }
+
+  #contenedor_logo{
+    background-color: black;
+    display: flex;
+  }
+
+    #logo{
+        padding-left: 10px;
+        width: fit-content;
+    }
+
+    #nombre_logo{
+        margin: auto;
+        width: fit-content;
+    }
+
+  .carteles{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    background-color: black;
+  }
+
+    .cartel1{
+        width: auto;
+        margin: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }

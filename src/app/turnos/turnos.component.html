@@ -1,0 +1,273 @@
+<h1 class="display-4"><strong>Reservá tu turno!</strong></h1>
+    <div>
+      <div class="buscaFormu">
+      <form [formGroup]="form" (ngSubmit)="enviar(form.value)">
+        <br>
+        <div class="form-group">
+          <span hidden id="negrita">Usuario: </span>
+          <span hidden>{{nombreUsuario}}</span>
+        </div>
+        <div class="form-group">
+          <span hidden id="negrita">Email: </span>
+          <span hidden>{{emailUsuario}}</span>
+        </div>
+        <span hidden id="negrita">Barbero: </span>
+        <!--
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="barbero" id="barbero1" value="Miguel">
+          <label class="form-check-label" for="barbero1">
+            Miguel
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="barbero" id="barbero2" value="Alfredo">
+          <label class="form-check-label" for="barbero2">
+            Alfredo
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="barbero" id="barbero3" value="Ignacio" >
+          <label class="form-check-label" for="barbero3">
+            Ignacio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="barbero" id="barbero4" value="Sin preferencia" >
+          <label class="form-check-label" for="barbero4">
+            Sin preferencia
+          </label>
+        </div>
+        -->
+        <div class="form-group">
+          <label id="negrita" for="exampleFormControlSelect1">Barbero</label>
+          <select formControlName="barbero" class="form-control" id="exampleFormControlSelect1">
+            <option selected>Sin preferencia</option>
+            <option value="Miguel">Miguel</option>
+            <option value="Alfredo">Alfredo</option>
+            <option value="Ignacio">Ignacio</option>
+          </select>
+        </div>
+        <br>
+        <p hidden id="doradito">Fecha</p>
+        <div class="form-group">
+          <label for="inputDia" id="negrita">Día</label>
+          <input type="number" formControlName="dia" class="form-control" id="inputDia" min="1" max="31">
+        </div>
+        <div class="form-group">
+          <label id="negrita" for="exampleFormControlSelect1">Mes</label>
+          <select formControlName="mes" class="form-control" id="exampleFormControlSelect1">
+            <option selected>---</option>
+            <option value=1>Enero</option>
+            <option value=2>Febrero</option>
+            <option value=3>Marzo</option>
+            <option value=4>Abril</option>
+            <option value=5>Mayo</option>
+            <option value=6>Junio</option>
+            <option value=7>Julio</option>
+            <option value=8>Agosto</option>
+            <option value=9>Septiembre</option>
+            <option value=10>Octubre</option>
+            <option value=11>Noviembre</option>
+            <option value=12>Diciembre</option>
+          </select>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid">Buscar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+      <div *ngIf="!valido && botonApretado" class="alert alert-danger" role="alert">
+        Ingresa una fecha valida!
+      </div>
+      <!--
+      <div *ngIf="!hayTurno && botonApretado" class="alert alert-danger" role="alert">
+        No hay turnos disponibles para la fecha elegida. Buscar en otra fecha!
+      </div>
+      -->
+      <div *ngIf="valido && botonApretado && hayTurno" class="alert alert-success" role="alert">
+        Estos son los turnos disponibles segun tus preferencias!
+      </div>
+      <div class="turno">
+        <p class="campos"><span id="colorcito">Fecha del turno</span></p>
+        <p class="campos"><span id="colorcito">Hora del turno</span></p>
+        <p class="campos"><span id="colorcito">Barbero</span></p>
+        <p class="campos"><span id="colorcito">Solicitar Turno</span></p>
+      </div>
+      <div class="buscador">
+        <input id="busca" type="text" (keyup)="filtroTabla($event.target.value)" placeholder="Filtra por el turno">
+      </div>
+      <div class="turno" *ngFor="let t of turnos">
+        <p class="campos" *ngIf="turnoDisponible(t.disponible,t.dia,t.mes,t.barbero) && ((t.barbero | lowercase).includes(filtro.toLowerCase()) || (t.hora | lowercase).includes(filtro.toLowerCase()))"><span id="colorcito"></span>{{t.dia}}/{{t.mes}}</p>
+        <p class="campos" *ngIf="turnoDisponible(t.disponible,t.dia,t.mes,t.barbero) && ((t.barbero | lowercase).includes(filtro.toLowerCase()) || (t.hora | lowercase).includes(filtro.toLowerCase()))"><span id="colorcito"></span>{{t.hora}}Hs</p>
+        <p class="campos" *ngIf="turnoDisponible(t.disponible,t.dia,t.mes,t.barbero) && ((t.barbero | lowercase).includes(filtro.toLowerCase()) || (t.hora | lowercase).includes(filtro.toLowerCase()))"><span id="colorcito"></span>{{t.barbero}}</p>
+        <p class="campos" *ngIf="turnoDisponible(t.disponible,t.dia,t.mes,t.barbero) && ((t.barbero | lowercase).includes(filtro.toLowerCase()) || (t.hora | lowercase).includes(filtro.toLowerCase()))"><button (click)="abrirModal(t)" id="reserva" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Solicitar Turno</button></p>
+      </div>
+      <div *ngIf="!hayTurno && botonApretado" class="alert alert-danger" role="alert">
+        No hay turnos disponibles para la fecha elegida. Buscar en otra fecha!
+      </div>
+    </div>
+    
+<ng-template #loggedOut>
+  <div class="alert alert-primary" role="alert" id="logueate">
+    Para poder acceder a un turno, por favor, <a href="/login" class="alert-link">INICIA SESIÓN</a> o <a href="/registro" class="alert-link">REGISTRATE</a> en caso de no tener cuenta.
+  </div>
+</ng-template>
+
+<!-- Button trigger modal 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Solicitar Turno
+</button>
+-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Desea reservar este turno?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--
+      <div class="modal-body">
+        
+      </div>
+      -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button (click)="confirmaTurno()" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#turnoConfirmado">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Turno Confirmado -->
+<div class="modal fade" id="turnoConfirmado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Turno Solicitado Exitosamente</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Usuario: {{ variableUsername }} </p>
+        <p>Email: {{ variableEmail }} </p>
+        <p>Fecha: {{ variableDia }}/{{ variableMes }} </p>
+        <p>Horario: {{ variableHora }}Hs </p>
+        <p>Barbero: {{ variableBarbero }} </p>
+        <br><br>
+        <p>El ticket lo puedo ver en cualquier momento en “Perfil” / ”Tickets” .   Si desea cancelar ir a “Perfil” / ”Tickets” y la lista de tickets busca el turno   y tiene botón Cancelar</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+        <button (click)="generarPDF2()" type="button" class="btn btn-primary" data-dismiss="modal">Descargar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="jumbotron jumbotron-fluid" *ngIf="currentUser; else loggedOut">
+  <div class="container">
+    <h1 class="display-4"><strong>Reservá tu turno!</strong></h1>
+    <form [formGroup]="form" (ngSubmit)="enviar(form.value)">
+      <br>
+      <div class="form-group">
+        <span id="negrita">Usuario: </span>
+        <span>{{nombreUsuario}}</span>
+      </div>
+      <div class="form-group">
+        <span id="negrita">Email: </span>
+        <span>{{emailUsuario}}</span>
+      </div>
+      <span id="negrita">Barbero: </span>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="barbero" id="barbero1" value="Miguel">
+        <label class="form-check-label" for="barbero1">
+          Miguel
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="barbero" id="barbero2" value="Alfredo">
+        <label class="form-check-label" for="barbero2">
+          Alfredo
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="barbero" id="barbero3" value="Ignacio" >
+        <label class="form-check-label" for="barbero3">
+          Ignacio
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" formControlName="barbero" id="barbero4" value="Sin preferencia" >
+        <label class="form-check-label" for="barbero4">
+          Sin preferencia
+        </label>
+      </div>
+      <br>
+      <p id="negrita">Fecha de turno:</p>
+      <div class="form-group">
+        <label for="inputDia" id="negrita">Día</label>
+        <input type="number" formControlName="dia" class="form-control" id="inputDia" required>
+      </div>
+      <div class="form-group">
+        <label id="negrita" for="exampleFormControlSelect1">Mes</label>
+        <select formControlName="mes" class="form-control" id="exampleFormControlSelect1">
+          <option selected>---</option>
+          <option value=1>Enero</option>
+          <option value=2>Febrero</option>
+          <option value=3>Marzo</option>
+          <option value=4>Abril</option>
+          <option value=5>Mayo</option>
+          <option value=6>Junio</option>
+          <option value=7>Julio</option>
+          <option value=8>Agosto</option>
+          <option value=9>Septiembre</option>
+          <option value=10>Octubre</option>
+          <option value=11>Noviembre</option>
+          <option value=12>Diciembre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label id="negrita" for="hora">Hora</label>
+        <select formControlName="hora" class="form-control" id="hora">
+          <option selected>---</option>
+          <option value="9">09.00 AM</option>
+          <option value="10">10.00 AM</option>
+          <option value="11">11.00 AM</option>
+          <option value="12">12.00 PM</option>
+          <option value="13">13.00 PM</option>
+          <option value="14">14.00 PM</option>
+          <option value="15">15.00 PM</option>
+          <option value="16">16.00 PM</option>
+          <option value="17">17.00 PM</option>
+          <option value="18">18.00 PM</option>
+          <option value="19">19.00 PM</option>
+          <option value="20">20.00 PM</option>
+        </select>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid">Reserva!</button>
+        </div>
+      </div>
+    </form>
+    <div *ngIf="!valido && botonApretado" class="alert alert-danger" role="alert">
+      Ingresa una fecha valida!
+    </div>
+    <div *ngIf="valido && botonApretado" class="alert alert-success" role="alert">
+      Turno solicitado con exito!
+    </div>
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  <div class="alert alert-primary" role="alert" id="logueate">
+    Para poder acceder a un turno, por favor, <a href="/login" class="alert-link">INICIA SESIÓN</a> o <a href="/registro" class="alert-link">REGISTRATE</a> en caso de no tener cuenta.
+  </div>
+</ng-template>
+-->

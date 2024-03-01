@@ -1,0 +1,460 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Nuestros productos</h1>
+    <p>
+      Vikings Barber Shop fabrica y distribuye en todo el pais miles de artículos para
+      profesionales de la industria de la peluquería, belleza y cosmética . Llevamos más
+      de 75 años trabajando para proporcionar productos de alta calidad a profesionales
+      de la industria. Nuestras propias marcas son: InSight (peluquería), Osis (Estética),
+      De Preal (cosmética) y Primont (Barber). Somos la empresa líder en Rosario en nuestro sector
+      y exportamos a más de 10 provincias en todo el pais. Tenemos una extensa red de distribución
+      tanto a nivel nacional como internacional. Como empresa, Vikings Barber Shop es pionera en
+      Argentina en la investigación, diseño y fabricación de accesorios, herramientas, peluquería
+      y estética.
+    </p>
+  </div>
+</div>
+<div class="container">
+  <button (click)="listaProductos()" class="btn-long">Conoce todos nuestros productos aquí</button>
+</div>
+<div class="buscador" *ngIf="listarProductos">
+  <input id="busca" type="text" (keyup)="filtroTabla($event.target.value)" placeholder="Filtra por el nombre de producto que estes buscando">
+</div>
+<div *ngIf="productosDisponibles">
+  <div *ngFor="let p of productos" class="tablita" [style.display]="(ocultarProducto(p.disponible) && p.nombre.toLowerCase().includes(filtro.toLowerCase())) ? 'block' : 'none'">
+    <p id="colorcito">Nombre: </p><p id="campos">{{ p.nombre }}</p>
+    <p id="colorcito">Descripcion: </p><p id="campos">{{ p.descripcion }}</p>
+    <p id="colorcito">Precio: </p><p id="campos">{{ p.precio }}</p>
+    <div class="container">
+      <button type="button" class="btn btn-primary carritocompra" data-toggle="modal" data-target="#exampleModalCarrito">
+        <i class="fas fa-shopping-cart"></i><span>Agregar a Carrito</span>
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="!productosDisponibles" class="alert alert-warning" role="alert">
+  No se encontraron productos disponibles con este filtro.
+</div>
+<div class="grancontenedor">
+  <div class="tab">
+      <button class="tablinks" (click)="abrirTabla($event, 'Primont')">Primont</button>
+      <button class="tablinks" (click)="abrirTabla($event, 'DePreal')">De Preal</button>
+      <button class="tablinks" (click)="abrirTabla($event, 'InSight')">InSight</button>
+  </div>
+
+  <div id="Primont" class="tabcontent">
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/prod1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cera BARBER</h5>
+          <p class="card-text">Cera Efecto Brillante BARBER x 60ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$540,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel BARBER</h5>
+          <p class="card-text">Gel Efecto Fuerte BARBER x 250ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$540,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pomada BARBER</h5>
+          <p class="card-text">Pomada Efecto Mate BARBER x 60ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$540,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/prod4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Serum BARBER</h5>
+          <p class="card-text">Serum Con Aceite De Argán x 20ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$435,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo BARBER</h5>
+          <p class="card-text">Shampoo BARBER x 250ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$540,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Acondicionador BARBER</h5>
+          <p class="card-text">Acondicionador BARBER x 60ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$435,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/prod7.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Ampolla P07</h5>
+          <p class="card-text">Ampolla Caída Severa P07 x 10ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$99,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod8.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo For Men</h5>
+          <p class="card-text">Shampoo For Men Caída x 250ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$225,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod9.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Combo Novelty</h5>
+          <p class="card-text">Set BARBER Novelty + REGALO! Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$2500,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Caja De Ampollas Caída Severa</h5>
+          <p class="card-text">Caja De 6 Unidades De Ampollas Caída Severa P07 x 10ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$500,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod13.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo Queration</h5>
+          <p class="card-text">Shampoo Queration x 350ml Primont</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$400,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod14.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Máscara Capilar</h5>
+          <p class="card-text">Máscara Capilar Con Células Madres x 237gr</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$659,00</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="DePreal" class="tabcontent">
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/prod10.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Fijación Natural</h5>
+          <p class="card-text">Gel Fijador Para Cabellos Sin Alcohol x 1050gr Fijación Natural De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$269,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod11.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Efecto Húmedo</h5>
+          <p class="card-text">Gel Fijador Para Cabello Sin Alcohol x 1050gr Efecto Húmedo De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$269,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod12.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Fijación Fuerte</h5>
+          <p class="card-text">Gel Fijador Para Cabello Sin Alcohol x 500gr Fijación Fuerte De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$162,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Crema de afeitar</h5>
+          <p class="card-text">Crema de afeitar con mentol x 200gr De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$300,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda12.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Fijador De Cabello De Preal</h5>
+          <p class="card-text">Fijador Ricinado Para El Cabello. Fijacion + Brillo x 125ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$290,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda15.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Cabello Fijación Fuerte</h5>
+          <p class="card-text">Gel Fijador Para El Cabello Sin Alcohol Fijación Fuerte x 250ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$139,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda16.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Brillo Mojado</h5>
+          <p class="card-text">Gel Fijador Para El Cabello Sin Alcohol Brillo Mojado Extra Fijación x 250ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$139,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod15.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Fijación Natural</h5>
+          <p class="card-text">Gel Fijador Para El Cabello Sin Alcohol Fijación Natural x 250ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$139,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod16.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Efecto Húmedo</h5>
+          <p class="card-text">Gel Fijador Para El Cabello Sin Alcohol Efecto Húmedo x 250ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$139,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cera En Pomada</h5>
+          <p class="card-text">Cera En Pomada Modelar Fijación Tecni Art Stiff x 75ml L'oreal En Colaboración Con De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$1380,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda13.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gel Fijador Fix Max</h5>
+          <p class="card-text">Gel Fijador Tecni Art Fix Max x 200ml L'oreal En Colaboración Con De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$1415,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/prod17.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Colonia Floral</h5>
+          <p class="card-text">Colonia Clásica Floral x 500ml De Preal</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$240,00</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="InSight" class="tabcontent">
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Aceite Multifunción Para Barba Y Afeitado</h5>
+          <p class="card-text">Aceite Multifunción Para Barba Y Afeitado x 50ml Con Extracto Biológico De Dátil + Aceite Biológico De Girasol + Aceite Biológico De Almendra Dulce</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$320,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Limpiador Para Barba</h5>
+          <p class="card-text">Limpiador Para Barba x 250ml Recomendado Para Limpieza Diaria Con Extractos Biológicos De Dátil, Nuez Y De Jengibre</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$200,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Crema Emoliente Para Después De Afeitar</h5>
+          <p class="card-text">Crema Emoliente Para Después De Afeitar x 100ml Con Extracto Biológico de Dátil + Aceite Biológico de Neem + Extracto Biológico de Mirto </p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$260,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda17.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Limpiador Para El Cuerpo Y El Cabello</h5>
+          <p class="card-text">Limpiador Para El Cuerpo Y El Cabello x 250ml Con Extracto Biológico de Dátil + Aceite de Árbol de Té + Extracto Biológico de Aloe</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$586,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda29.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Crema Colorante Fitoproteica Hydra-Color</h5>
+          <p class="card-text">Crema Colorante Fitoproteica Hydra-Color Con Extractos De Hydra-Color Blend + Fitoqueratina Vegetal + Aceite Biológico De Argán + Manteca De Semillas De Uva</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$450,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda30.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Combo Alisante</h5>
+          <p class="card-text">Crema Alisante Para Cabellos Naturales O Resistentes + Fórmula Disciplinante Alisante De Acción Prolongada, Antiencrespado</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$1250,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda31.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo Nutritivo</h5>
+          <p class="card-text">Shampoo Nutritivo Para Cabellos Secos Y Frágiles Con Extracto Biológico De Avena + Fitocomplejo Nutritivo (Aceite De Coco, Manteca De Illipé, Aceite De Almendra Dulce)</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$730,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda32.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Complejo Reestructurante</h5>
+          <p class="card-text">Suero Reestructurante Y Protector Con Aceite De Rosa Mosqueta + Fitocomplejo Biológico Reparador (Extractos Biológicos De Malva, Malvavisco y Caléndula)</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$500,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda33.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shampoo Antioxidante</h5>
+          <p class="card-text">Shampoo Antioxidante Con Extracto Biológico De Zanahoria + Fitocomplejo Antioxidante (Manteca De Soja, Aceite De Jojoba, Aceite de Avellana)</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$736,00</small>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img src="./assets/imagenes/tienda34.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Crema Lenitiva Para El Cuero Cabelludo</h5>
+          <p class="card-text">Crema Calmante Y Lenitiva Para El Cuero Cabelludo Irritado O Enrojecido Con Extracto De Chumbera + Extractos Biológicos De Aloe Y De Malva</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$750,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda35.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Máscara Reestructurante</h5>
+          <p class="card-text">Máscara Reestructurante Para Revitalizar El Cabello Dañado Y Debilitado Con Extracto Biológico De Germen De Trigo + Fitocomplejo Reestructurante: (Manteca De Oliva, Aceite De Argán, Aceite De salvado De Arroz)</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$400,00</small>
+        </div>
+      </div>
+      <div class="card">
+        <img src="./assets/imagenes/tienda36.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Máscara Para Cuero Cabelludo Sensible</h5>
+          <p class="card-text">Máscara Para Cuero Cabelludo Sensible Para Dejar El Cabello Más Suave Y Con Más Cuerpo Con Extracto Biológico de Calabaza + Extracto Biológico de Membrillo</p>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">$625,00</small>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Modal Carrito-->
+<div class="modal fade" id="exampleModalCarrito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        En desarrollo, no entra en esta primera iteracion del proyecto de Ingenieria de Software II.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noProductosEncontrados>
+  <div class="alert alert-warning" role="alert">
+    No se encontraron productos disponibles con este filtro.
+  </div>
+</ng-template>

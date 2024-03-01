@@ -1,0 +1,81 @@
+<div class="jumbotron jumbotron-fluid" *ngIf="currentUser; else loggedOut">
+  <div class="container">
+    <h1 class="display-4"><strong>{{ currentUser.username }}</strong> Perfil</h1>
+  </div>
+  <div class="info-usuario">
+    <p>
+      <strong>Token:</strong>
+      {{ currentUser.accessToken.substring(0, 20) }} ...
+      {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+    </p>
+    <p>
+      <strong>Email:</strong>
+      {{ currentUser.email }}
+    </p>
+    <strong>Roles:</strong>
+    <ul>
+      <li *ngFor="let role of currentUser.roles">
+        {{ role }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="ticket">
+  <div class="turno">
+    <p class="campos"><span id="colorcito">Fecha del turno</span></p>
+    <p class="campos"><span id="colorcito">Hora del turno</span></p>
+    <p class="campos"><span id="colorcito">Barbero</span></p>
+    <p class="campos"><span id="colorcito">Ver Ticket</span></p>
+    <p class="campos"><span id="colorcito">Cancelar Turno</span></p>
+  </div>
+  <div class="turno" *ngFor="let t of turnos">
+    <p class="campos" *ngIf="turnoDisponible(t.disponible,t.username)"><span id="colorcito"></span>{{t.dia}}/{{t.mes}}</p>
+    <p class="campos" *ngIf="turnoDisponible(t.disponible,t.username)"><span id="colorcito"></span>{{t.hora}}Hs</p>
+    <p class="campos" *ngIf="turnoDisponible(t.disponible,t.username)"><span id="colorcito"></span>{{t.barbero}}</p>
+    <p class="campos" *ngIf="turnoDisponible(t.disponible,t.username)"><button (click)="generarPDF(t)" id="cancela" type="button" class="btn btn-primary"><i class="fas fa-file-pdf"></i></button></p>
+    <p class="campos" *ngIf="turnoDisponible(t.disponible,t.username)"><button (click)="abrirModal(t)" id="cancela" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModaluser"><i class="fas fa-times"></i></button></p>
+  </div>
+</div>
+<ng-template #loggedOut>
+  <div class="alert alert-primary" role="alert" id="logueate">
+    Para acceder a esta seccion, por favor, <a href="/login" class="alert-link">INICIA SESIÓN</a> o <a href="/registro" class="alert-link">REGISTRATE</a> en caso de no tener cuenta.
+  </div>
+</ng-template>
+<!-- Modal Cancelar Turno-->
+<div class="modal fade" id="exampleModaluser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Desea cancelar este turno?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button (click)="borrarTurno()" type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal PDF-->
+<div class="modal fade" id="exampleModaluser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Desea cancelar este turno?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="pdfViewer" class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button (click)="borrarTurno()" type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>

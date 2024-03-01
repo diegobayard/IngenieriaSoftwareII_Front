@@ -1,0 +1,40 @@
+.slider{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+}
+
+  .fotitos{
+      width: 70%;
+      margin-left: 10px;
+  }
+      .miSlide{
+          width: 100%;
+          height: 386px;
+      }
+
+  #texto_hist{
+      background-color: black;
+      color: silver;
+      width: 30%;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      text-align:center;
+      font-size: 25px;
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 28px;
+  }
+
+  #textito{
+      font-size: 25px;
+      color: silver;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+      text-decoration: underline;
+  }
+
+  #textito:hover{
+      color: gold;
+  }

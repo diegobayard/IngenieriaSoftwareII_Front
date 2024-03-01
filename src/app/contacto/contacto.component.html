@@ -1,0 +1,76 @@
+<!--<h2>Contactanos</h2>-->
+
+<div class="contenedor">
+    <div class="formu">
+ <!--       <p>Contactanos aqui <i class="far fa-hand-point-down"></i></p>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="enviar(form.value)">
+            <label for="nombre">Nombre </label>
+            <input type="text" formControlName="nombre" id="nombre" style="margin-right: 45px; height: 25px;" required>
+            <label for="apellido">Apellido </label>
+            <input type="text" formControlName="apellido" id="apellido" style="height: 25px;">
+            <br><br><br><br>
+            <label for="email">Email </label>
+            <input type="email" formControlName="email" id="email" style="margin-right: 45px; height: 25px;">
+            <label for="telefono">Telefono </label>
+            <input type="text" formControlName="telefono" id="telefono" style="height: 25px;" required>
+            <br><br><br><br>
+            <label for="mensaje">Ingrese su mensaje</label>
+            <br><br><br>
+            <textarea formControlName="comentario" id="comentario" cols="80" rows="15" required></textarea>
+            <br><br><br>
+            <input type="submit" id="enviar" value="Enviar" [disabled]="!form.valid">
+            <input type="reset" id="borrar" value="Borrar">
+        </form>
+    </div> -->
+    <p>Contactanos aquí</p>
+    <form [formGroup]="form" (ngSubmit)="enviar(form.value)">
+    <p><i class="far fa-hand-point-down"></i></p>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="nombre">Nombre</label>
+      <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="Diego" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer02">Apellido</label>
+      <input type="text" formControlName="apellido" class="form-control" id="validationServer02" placeholder="Lategano" required>
+    </div>
+  </div>
+  <br>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="email">Email</label>
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="bruno@bayard.com">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="email">Telefono</label>
+      <input type="text" formControlName="telefono" class="form-control" id="telefono" placeholder="3415463826">
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="validationTextarea">Escriba su mensaje aca</label>
+    <textarea class="form-control" formControlName="comentario" id="validationTextarea" rows="7" required></textarea>
+  </div>
+  <br>
+  <button class="btn btn-warning btn-block" id="botonact" type="submit" [disabled]="!form.valid">Enviar</button>
+  <br>
+  <div *ngIf="!form.valid" class="alert alert-danger" role="alert">
+    Completar todos campos para poder enviar formulario!
+  </div>
+  <div *ngIf="form.valid && activado" class="alert alert-success" role="alert">
+    Enviado con exito!
+  </div>
+</form>
+</div>
+    <div class="info">
+        <p>Av. Pellegrini 250, S2000BUS Rosario, Santa Fe, Argentina.</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.687521364527!2d-60.630930484857544!3d-32.95925848091732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab0025fb96ad%3A0x93d9b10e5d95b452!2sAv.%20Pellegrini%20250%2C%20S2000%20BTP%2C%20Santa%20Fe!5e0!3m2!1ses-419!2sar!4v1586647963397!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <br>
+        <p><i class="fas fa-phone-alt" style="color:crimson"></i> Teléfono: 0341 480 26 41 </p>
+        <p><i class="fas fa-mobile-alt"></i> Whatsapp: +54 9 3412 454 647 </p>
+        <p><i class="far fa-envelope" style="color:crimson"></i> rosario@VikingsBS.com</p>
+        <p><i class="fas fa-clock"></i> Lunes a Viernes de 9:00 a 21:00 hs.</p>
+        <p><i class="fas fa-clock" style="color:crimson"></i> Sabados de 8.00 a 13:00 hs</p>
+    </div>
+</div>

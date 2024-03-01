@@ -1,0 +1,261 @@
+/*a{
+  text-decoration: none;
+
+  color: silver;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: 'Girassol', cursive;
+}
+  a:hover{
+      color: goldenrod;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Girassol', cursive;
+  }
+
+  #inicia{
+      color: silver;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: large;
+      margin-top: 14px;
+      margin-left: 20px;
+  }
+
+  #inicia:hover{
+      color: goldenrod;
+  }
+
+h1{
+  color:silver;
+  font-family: 'Aclonica', sans-serif;
+  font-size: 60px;
+    text-indent: -100px;
+}
+
+#contenedor_redes{
+  background-color: black;
+  display: flex;
+  margin-bottom: 10px;
+  padding-left: 65%;
+}
+
+  .redes{
+
+      width: fit-content;
+      margin-left: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+  }
+
+  .fa-facebook:hover{
+      color: blue !important;
+  }
+
+  .fa-instagram:hover{
+      color: violet !important;
+  }
+
+  .fa-youtube:hover{
+      color: red !important;
+  }
+
+  .fa-twitter:hover{
+      color: skyblue !important;
+  }
+
+  .fa-whatsapp:hover{
+      color: greenyellow !important;
+  }
+
+
+
+.slider_p{
+margin-top: 30px;
+width: 100%;
+display: flex;
+}
+.productitos{
+    width: 68%;
+    margin-right: 10px;
+}
+.productitis{
+    width: 68%;
+    margin-right: 10px;
+}
+.productites{
+    width: 68%;
+    margin-right: 10px;
+}
+.miSlide_p{
+  width: 100%;
+  height: 386px
+
+}
+
+.miSlide_p2{
+  width: 100%;
+  height: 386px
+
+}
+
+.miSlide_p3{
+  width: 100%;
+  height: 386px
+
+}
+#texto_prod{
+  background-color: black;
+  color: silver;
+  width: 95%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align:center;
+  font-size: 25px;
+}
+
+.slider{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+}
+
+  .fotitos{
+      width: 68%;
+      margin-left: 10px;
+  }
+      .miSlide{
+          width: 100%;
+          height: 386px;
+      }
+
+  #texto_hist{
+      background-color: black;
+      color: silver;
+      width: 30%;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align:center;
+      font-size: 25px;
+  }
+
+  #textito{
+      font-size: 25px;
+      color: silver;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: normal;
+  }
+
+  #textito:hover{
+      color: gold;
+  }
+
+footer{
+  margin-top: 20px;
+  background-color: black;
+  display: flex;
+}
+
+  .horario{
+      color:silver;
+      width: fit-content;
+      margin-left: 15%;
+      margin-top: 20px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: large;
+  }
+
+  #reserva{
+      margin: 30px;
+      margin-left: 25%;
+      justify-content: right;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border-radius: 35px;
+      border: black;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 10px;
+  }
+
+  #reserva:hover{
+      background: linear-gradient(to right, #0575e6, #021b79);
+  }
+
+  .miSlider_p{
+      position: relative;
+  }
+
+  .miSlider_p2{
+      position: relative;
+  }
+
+  .miSlider_p3{
+      position: relative;
+  }
+
+  .textite{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.849);
+      width: 100%;
+      text-align: center;
+      color: silver;
+      font-size: larger;
+  }
+*/
+  /*
+<div class="slider">
+    <div id="texto_hist">
+      <!-- <p>En la calle más auténtica y exclusiva de Rosario, Vikings Barber Shop recrea el ambiente atemporal de una peluquería de principios del siglo XX. Vikings Barber Shop representa un paraíso lujoso para aquellos caballeros que desean relajarse mientras pasan un tiempo valioso para ellos, experimentando los rituales de aseo más clásicos y atemporales. Cruzar la entrada del edificio del siglo XVIII significa entrar en un mundo de paz e intimidad, una dimensión paralela donde olvidarse de todo y concentrarse solo en usted. El interior de la boutique se caracteriza por un aspecto unico, inspirado en los mosaicos de lujo de los hoteles de lujo europeos de principios del siglo XX y estudiado para inspirar paz y elegancia atemporal. Conoce mas de <a id ="textito" href="nosotros.html">nosotros</a></p> -->
+      <p>En la calle más auténtica y exclusiva de Rosario, Vikings Barber Shop recrea el ambiente atemporal de una peluquería de principios del siglo XX. Vikings Barber Shop representa un paraíso lujoso para aquellos caballeros que desean relajarse mientras pasan un tiempo valioso para ellos, experimentando los rituales de aseo más clásicos y atemporales. Conoce más de <a id ="textito" href="nosotros.html">nosotros</a></p>
+    </div>
+    <div class="fotitos">
+      <img class="miSlide" src="imagenes/slide1.JPG">
+      <img class="miSlide" src="imagenes/slide2.JPEG">
+      <img class="miSlide" src="imagenes/slide3.jpg">
+      <img class="miSlide" src="imagenes/slide4.jpg">
+    </div>
+  </div>
+
+    <div class="slider_p">
+      <div class="productitos">
+        <div class="miSlider_p"><img class="miSlide_p" src="imagenes/prod1.JPG"><p class="textite">Cera Efecto Brillante BARBER x 60ml Primont $540</p></div>
+        <div class="miSlider_p"><img class="miSlide_p" src="imagenes/prod3.jpg"><p class="textite">Pomada Efecto Mate BARBER x 60ml Primont $540</p></div>
+        <div class="miSlider_p"><img class="miSlide_p" src="imagenes/prod2.JPG"><p class="textite">Gel Efecto Fuerte BARBER x 250ml Primont $540</p></div>
+        <div class="miSlider_p"><img class="miSlide_p" src="imagenes/prod4.jpg"><p class="textite">Serum Con Aceite De Argán BARBER x 20ml Primont $435</p></div>
+      </div>
+      <div class="productitis">
+        <div class="miSlider_p2"><img class="miSlide_p2" src="imagenes/prod5.JPG"><p class="textite">Shampoo BARBER x 250ml Primont $540</p></div>
+        <div class="miSlider_p2"><img class="miSlide_p2" src="imagenes/prod6.jpg"><p class="textite">Acondicionador BARBER x 60ml	Primont $435</p></div>
+        <div class="miSlider_p2"><img class="miSlide_p2" src="imagenes/prod7.JPG"><p class="textite">Ampolla Caída Severa P07 x 10ml Primont $99</p></div>
+        <div class="miSlider_p2"><img class="miSlide_p2" src="imagenes/prod8.jpg"><p class="textite">Shampoo For Men Caida x 250ml Primont $225</p></div>
+      </div>
+      <div class="productites">
+        <div class="miSlider_p3"><img class="miSlide_p3" src="imagenes/prod12.JPG"><p class="textite">Gel Fijador Para Cabello Sin Alcohol x 500g Fijacion Fuerte De Preal $162</p></div>
+        <div class="miSlider_p3"><img class="miSlide_p3" src="imagenes/prod10.jpg"><p class="textite">Gel Fijador Para Cabello Sin Alcohol x 1050g Fijacion Natural De Preal $269</p></div>
+        <div class="miSlider_p3"><img class="miSlide_p3" src="imagenes/prod11.JPG"><p class="textite">Gel Fijador Para Cabello Sin Alcohol x 1050g Efecto Húmedo De Preal $269</p></div>
+        <div class="miSlider_p3"><img class="miSlide_p3" src="imagenes/prod9.jpg"><p class="textite">Set BARBER Novelty + REGALO! Primont $25000</p></div>
+      </div>
+      <div id="texto_prod">
+        <!-- <p>Vikings Barber Shop fabrica y distribuye en todo el pais miles de artículos para profesionales de la industria de la peluquería, belleza y cosmética . Llevamos más de 75 años trabajando para proporcionar productos de alta calidad a profesionales de la industria. Nuestras propias marcas son: Assembler (peluquería), Haskell (Estética), Java (cosmética) y Python (Barber). Somos la empresa líder en Rosario en nuestro sector y exportamos a más de 10 provincias en todo el pais. Tenemos una extensa red de distribución tanto a nivel nacional como internacional. Como empresa, Vikings Barber Shop es pionera en Argentina en la investigación, diseño y fabricación de accesorios, herramientas, peluquería y estética. Conoce mas de nuestros <a id ="textito" href="productos.html">productos</a></p> -->
+        <p>Vikings Barber Shop fabrica y distribuye en todo el país miles de artículos para profesionales de la industria de la peluquería, belleza y cosmética. Llevamos más de 75 años trabajando para proporcionar productos de alta calidad a profesionales de la industria. Somos pioneros en Argentina en el diseño y fabricación de herramientas, peluquería y estética. Conoce más de nuestros <a id ="textito" href="productos.html">productos</a></p>
+      </div>
+    </div>
+
+  <footer>
+      <div class="horario">
+          <p><i class="fas fa-clock"></i> Lunes a Viernes de 9 a 21 hs y Sábados de 8 a 13 hs</p>
+      </div>
+      <button id="reserva">Reserva tu turno</button>
+  </footer>
+
+  */
+.contenedor-global{
+  margin: 10px;
+}

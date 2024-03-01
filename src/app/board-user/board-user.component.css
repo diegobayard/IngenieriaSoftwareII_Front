@@ -1,0 +1,48 @@
+#logueate{
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .jumbotron{
+    margin-top: 20px;
+  }
+  
+  .container{
+    text-align: center;
+  }
+  
+  .info-usuario{
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+
+  .turno{
+    display: flex;
+    background-color: #1f1f1e;
+    justify-content: space-between;
+    align-items: center;
+  }  
+
+  #colorcito{
+    color: crimson;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 0 0 auto;
+  }
+
+  .campos{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: azure;
+    flex: 0 0 auto;
+  }
+
+  #cancela{
+    background-color: goldenrod;
+    color: black;
+    border: #1f1f1e;
+    border-radius: 5px;
+    font-weight: bold;
+  }

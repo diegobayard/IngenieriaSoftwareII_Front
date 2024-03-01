@@ -1,0 +1,19 @@
+#logueate{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.jumbotron{
+  margin-top: 20px;
+}
+
+.container{
+  text-align: center;
+}
+
+.info-usuario{
+  margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}

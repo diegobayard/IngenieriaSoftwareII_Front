@@ -1,0 +1,76 @@
+.grancontenedor{
+  margin-top: 20px;
+  background-color: black;
+}
+
+.tab {
+  overflow: hidden;
+  border: 5px solid black;
+  background: linear-gradient(336deg, #000000, #1f1f1e, #000000);
+}
+
+.tab button {
+  background: linear-gradient(336deg, #000000, #1f1f1e, #000000);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 25px;
+  font-family: 'Aclonica', sans-serif;
+  margin-right: 11%;
+  margin-left: 11%;
+  color: silver;
+}
+
+.tab button:hover {
+  background: linear-gradient(to right, #f79814, #f0df4a);
+  color: black;
+}
+
+.tab button.active {
+  background: linear-gradient(to right, #f09819, #edde5d);
+  color: black;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid black;
+  border-top: none;
+  color: silver;
+}
+
+.precio{
+  float: right;
+  padding-right: 20%;
+}
+
+.puntitos{
+  color: yellow;
+  font-size: larger;
+}
+
+p{
+  padding-left: 10%;
+}
+
+h3{
+  padding-left: 10%;
+  font-size: x-large;
+}
+.list-group-item-dark{
+  background: linear-gradient(336deg, #000000, #1f1f1e, #000000) !important;
+}
+
+li{
+  color: silver;
+  font-weight: bold;
+}
+
+.badge-warning{
+  font-weight: bold !important;
+  color: black;
+  font-size: large;
+}

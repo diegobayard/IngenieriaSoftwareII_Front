@@ -1,0 +1,32 @@
+.contenedor{
+  margin-top: 20px;
+  background-color: black;
+  display: flex;
+}
+
+  .horario{
+      color:silver;
+      width: fit-content;
+      margin-left: 15%;
+      margin-top: 38px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: large;
+      font-weight: bold;
+  }
+
+  #reserva{
+      margin: 30px;
+      margin-left: 25%;
+      justify-content: right;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      border-radius: 35px;
+      border: black;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-size: 15px;
+      padding: 10px;
+  }
+
+  #reserva:hover{
+      background: linear-gradient(to right, #0575e6, #021b79);
+  }
